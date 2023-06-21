@@ -50,7 +50,7 @@ public class Function {
     }
 
     public void menu() {
-        Scanner input = new Scanner(System.in);
+        try(Scanner input = new Scanner(System.in)){
         boolean exit = false;
         People person1 = new People("Alice", 20);
         People person2 = new People("Bob", 25);
@@ -58,8 +58,8 @@ public class Function {
         People person4 = new People("Dave", 35);
         ArrayList<People> peopleList = new ArrayList<People>();
         peopleList.add(person1);
-        peopleList.add(person2);
         peopleList.add(person3);
+        peopleList.add(person2);
         peopleList.add(person4);
         do {
             System.out.println("0. Add a person");
@@ -69,7 +69,8 @@ public class Function {
             System.out.println("4. Get oldest people");
             System.out.println("5. Sort list by age");
             System.out.println("6. Print list");
-            System.out.println("7. Exit");
+            System.out.println("7. Print All");
+            System.out.println("8. Exit");
             System.out.println("Enter your choice: ");
             int choice = input.nextInt();
             switch (choice) {
@@ -91,13 +92,13 @@ public class Function {
                     }
                     break;
                 case 2:
-                    System.out.println("Youngest " + getYoungestPeople(peopleList));
+                    System.out.println("The Youngest " + getYoungestPeople(peopleList));
                     break;
                 case 3:
                     System.out.println("Average age is: " + getAverageAge(peopleList));
                     break;
                 case 4:
-                    System.out.println("Oldest " + getOldestPeople(peopleList));
+                    System.out.println("The Oldest " + getOldestPeople(peopleList));
                     break;
                 case 5:
                     ArrayList<People> sortedList = sortListByAge(peopleList);
@@ -112,6 +113,14 @@ public class Function {
 
                     break;
                 case 7:
+                    for (int i = 0; i < peopleList.size(); i++) {
+                        System.out.println("Name: " + peopleList.get(i).getName() + " Age: " + peopleList.get(i).getAge());
+                    }
+                   System.out.println("Average age is: " + getAverageAge(peopleList));
+                   System.out.println("The Youngest " + getYoungestPeople(peopleList));
+                   System.out.println("The Oldest " + getOldestPeople(peopleList));
+                   break;
+                case 8:
                     exit = true;
                     break;
                 default:
@@ -119,7 +128,7 @@ public class Function {
                     break;
             }
         } while (!exit);
-    }
+    }}
 
 
 
