@@ -48,6 +48,11 @@ public class Function {
         peopleList.sort(People::compareTo);
         return peopleList;
     }
+    public void printAverageYoungOldest(ArrayList<People> peopleList){
+        System.out.println("Average age is: " + getAverageAge(peopleList));
+        System.out.println("The Youngest " + getYoungestPeople(peopleList));
+        System.out.println("The Oldest " + getOldestPeople(peopleList));
+    }
 
     public void menu() {
         try(Scanner input = new Scanner(System.in)){
@@ -80,6 +85,8 @@ public class Function {
                     System.out.println("Enter age: ");
                     int age = input.nextInt();
                     peopleList = addPeople(peopleList, name, age);
+                    printAverageYoungOldest(peopleList);
+
                     break;
                 case 1:
                     System.out.println("Enter name: ");
@@ -116,9 +123,7 @@ public class Function {
                     for (int i = 0; i < peopleList.size(); i++) {
                         System.out.println("Name: " + peopleList.get(i).getName() + " Age: " + peopleList.get(i).getAge());
                     }
-                   System.out.println("Average age is: " + getAverageAge(peopleList));
-                   System.out.println("The Youngest " + getYoungestPeople(peopleList));
-                   System.out.println("The Oldest " + getOldestPeople(peopleList));
+                    printAverageYoungOldest(peopleList);
                    break;
                 case 8:
                     exit = true;
