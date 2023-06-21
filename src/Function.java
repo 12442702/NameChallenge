@@ -8,4 +8,14 @@ public class Function {
         return PeopleList;
     }
 
+    public People findPerson(ArrayList<People> PeopleList, String name) {
+        for (int i = 0; i < PeopleList.size(); i++) {
+            if (PeopleList.get(i).getName().equals(name)) {
+                return PeopleList.get(i);
+            }
+        }
+        return null;
+    }
+
+
 }
