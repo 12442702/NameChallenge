@@ -29,7 +29,7 @@ public class People implements Comparable<People> {
 
     @Override
     public String toString() {
-        return "people{" +
+        return "People{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
