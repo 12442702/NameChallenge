@@ -1,4 +1,4 @@
-public class People{
+public class People implements Comparable<People> {
     private String name;
     private int age;
 
@@ -35,5 +35,18 @@ public class People{
                 '}';
     }
 
+    @Override
+
+    public int	compareTo(People o){
+        if(this.age < o.age)
+            return -1;
+
+        else if(this.age>o.age)
+            return 1;
+        else
+            return 0;
+
+
+    }
 
 }
